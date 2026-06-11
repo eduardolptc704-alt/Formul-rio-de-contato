@@ -1,63 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário de Contato</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulário de Contato</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+  <body>
+    <main id="container">
+      <form id="formulario">
+        <h2>Contate-nos</h2>
 
-<body>
-  <main id="container">
-    <form>
-      <h2>Contate-nos</h2>
-
-      <div class="grid1">
-        <div class="formulario">
-          <label for="nome">Nome <span class="span">*</span></label>
-          <input type="text" name="nome" id="nome" required>
-        </div>
-
-        <div class="formulario">
-          <label for="sobrenome">Sobrenome <span class="span">*</span></label>
-          <input type="text" name="sobrenome" id="sobrenome" required>
-        </div>
-      </div>
-
-      <div class="formulario">
-        <label for="email">E-mail <span class="span">*</span> </label>
-        <input type="email" name="Email" id="email" required>
-      </div>
-
-      <div class="formulario">
-        <label>Tipo de consulta <span class="span">*</span></label>
         <div class="grid1">
-          <label class="radio-box">
-            <input type="radio" name="consulta" value="duvidas">
-            <span>Dúvidas</span>
-          </label>
-          <label class="radio-box">
-            <input type="radio" name="consulta" value="Suporte" required>
-            <span>Suporte</span>
+          <div class="formulario">
+            <label for="nome">Nome <span class="span">*</span></label>
+            <input type="text" name="nome" id="nome" required />
+          </div>
+
+          <div class="formulario">
+            <label for="sobrenome">Sobrenome <span class="span">*</span></label>
+            <input type="text" name="sobrenome" id="sobrenome" required />
+          </div>
+        </div>
+
+        <div class="formulario">
+          <label for="email">E-mail <span class="span">*</span> </label>
+          <input type="email" name="Email" id="email" required />
+        </div>
+
+        <div class="formulario">
+          <label>Tipo de consulta <span class="span">*</span></label>
+          <div class="grid1">
+            <label class="radio-box">
+              <input type="radio" name="consulta" value="duvidas" />
+              <span>Dúvidas</span>
+            </label>
+            <label class="radio-box">
+              <input type="radio" name="consulta" value="Suporte" required />
+              <span>Suporte</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="formulario">
+          <label for="comentario">Mensagem:</label>
+          <textarea
+            name="comentario"
+            id="comentario"
+            rows="4"
+            placeholder="Escreva aqui..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="checkbox-control">
+          <label for="aceito">
+            <input type="checkbox" name="aceito" id="aceito" required />
+            Concordo em ser contatado pela equipe<span class="span">*</span>
           </label>
         </div>
-      </div>
 
-      <div class="formulario">
-        <label for="comentario">Mensagem:</label>
-        <textarea name="comentario" id="comentario" rows="4" placeholder="Escreva aqui..." required></textarea>
-      </div>
+        <button type="submit" class="button">Enviar</button>
+      </form>
+    </main>
 
-      <div class="checkbox-control">
-        <label for="aceito">
-          <input type="checkbox" name="aceito" id="aceito" required> Concordo em ser contatado pela equipe<span class="span">*</span>
-        </label>
-      </div>
+    <script>
+      const webhook =
+        "https://discord.com/api/webhooks/1514754170937413662/TmObmqyeGPO_8q8GEv8rqht60FgsVu8339HoGHuJjw7km9of8kz65Gr5tuzp3MfCHybi";
 
-      <button type="submit" class="button">Enviar</button>
-    </form>
-  </main>
-</body>
+      const form = document.getElementById("formulario");
 
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const nome = document.getElementById("nome").value;
+        const sobrenome = document.getElementById("sobrenome").value;
+        const email = document.getElementById("email").value;
+        const mensagem = document.getElementById("comentario").value;
+
+        await fetch(webhook, {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            content: `Nome: ${nome}\nSobrenome: ${sobrenome}`,
+          }),
+        });
+      });
+    </script>
+  </body>
 </html>
