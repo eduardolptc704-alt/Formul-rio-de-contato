@@ -1,3 +1,4 @@
+/*Reset e Configurações Globais*/
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +7,7 @@
 }
 
 body {
-  background: linear-gradient(15deg, #b49b86 6%, #636676 50%, #001426 100%);
+  background: linear-gradient(15deg, #5a391e 6%, #2e3039 50%, #001426 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,13 +16,14 @@ body {
 }
 
 #container {
-  background: linear-gradient(5deg, #2f3336 0%, #636676 50%, #001426 100%);
+  background: linear-gradient(5deg, #5a391e 0%, #2e3039 50%, #001426 100%);
   max-width: 650px;
   width: 100%;
   padding: 40px;
   border-radius: 16px;
-  box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.2);
   text-align: left;
+  box-shadow: 25px 25px 25px rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(0 0 10px rgba(244, 242, 242, 0.3));
 }
 
 h2 {
@@ -31,23 +33,24 @@ h2 {
 }
 
 .span {
-  color: #5865f2;
+  color: #b9befa;
 }
 
-.form-control {
+/*Elementos do Formulário*/
+.formulario {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
 
-.form-control label {
+.formulario label {
   color: #ffffff;
   font-size: 14px;
   margin-bottom: 8px;
 }
 
-.form-control input,
-.form-control textarea {
+.formulario input,
+.formulario textarea {
   width: 100%;
   padding: 12px;
   border-radius: 6px;
@@ -56,13 +59,14 @@ h2 {
   font-size: 16px;
 }
 
-.form-control textarea {
+.formulario textarea {
   resize: none;
 }
 
+/*Customização do Radio Button*/
 .radio-box {
   display: flex;
-  flex-direction: row !important;
+  flex-direction: row;
   align-items: center;
   gap: 12px;
   border: 1px solid #ccc;
@@ -80,6 +84,7 @@ h2 {
   cursor: pointer;
 }
 
+/*Customização do Checkbox*/
 .checkbox-control {
   margin-bottom: 20px;
 }
@@ -93,20 +98,22 @@ h2 {
   cursor: pointer;
 }
 
+/*Estrutura de Layout*/
 .grid1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
+/*Botão de Envio*/
 .button {
-  background-color: #4752c4;
+  background-color: #001426;
   color: #ffffff;
   border: none;
   padding: 15px 30px;
   font-size: 16px;
   border-radius: 5px;
-  cursor: po;
+  cursor: pointer;
   width: 100%;
   margin-top: 10px;
   transition:
@@ -115,11 +122,12 @@ h2 {
 }
 
 .button:hover {
-  background-color: #5865f2;
+  background-color: #021e35;
   transform: scale(1.02);
-  cursor: pointer;
+  filter: drop-shadow(0 10px 10px rgba(244, 242, 242, 0.3));
 }
 
+/*Responsividade*/
 @media (max-width: 480px) {
   .grid1 {
     grid-template-columns: 1fr;

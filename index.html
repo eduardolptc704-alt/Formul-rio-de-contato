@@ -4,38 +4,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Contato</title>
+  <title>Formulário de Contato</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <main id="container">
-    <form>
-      <h2>Contate-nos</h2>
 
+  <main id="container">
+    <form id="formulario">
+      <h2>Contate-nos</h2>
       <div class="grid1">
-        <div class="form-control">
+        <div class="formulario">
           <label for="nome">Nome <span class="span">*</span></label>
           <input type="text" name="nome" id="nome" required>
         </div>
 
-        <div class="form-control">
-          <label for="sobrenome">Sobre-nome <span class="span">*</span></label>
+        <div class="formulario">
+          <label for="sobrenome">Sobrenome <span class="span">*</span></label>
           <input type="text" name="sobrenome" id="sobrenome" required>
         </div>
       </div>
 
-      <div class="form-control">
-        <label for="email">Email <span class="span">*</span> </label>
+      <div class="formulario">
+        <label for="email">E-mail <span class="span">*</span> </label>
         <input type="email" name="Email" id="email" required>
       </div>
 
-      <div class="form-control">
+      <div class="formulario">
         <label>Tipo de consulta <span class="span">*</span></label>
         <div class="grid1">
           <label class="radio-box">
             <input type="radio" name="consulta" value="duvidas">
-            <span>Duvidas</span>
+            <span>Dúvidas</span>
           </label>
           <label class="radio-box">
             <input type="radio" name="consulta" value="Suporte" required>
@@ -44,7 +44,7 @@
         </div>
       </div>
 
-      <div class="form-control">
+      <div class="formulario">
         <label for="comentario">Mensagem:</label>
         <textarea name="comentario" id="comentario" rows="4" placeholder="Escreva aqui..." required></textarea>
       </div>
@@ -58,6 +58,8 @@
       <button type="submit" class="button">Enviar</button>
     </form>
   </main>
+
+  <script src="index.js"></script>
 </body>
 
 </html>
